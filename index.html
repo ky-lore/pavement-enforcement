@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pavement Enforcement — SoCal Commercial Paving Division</title>
+<meta name="description" content="Commercial asphalt, sealcoating, striping & ADA compliance across the Inland Empire, LA, Riverside, San Bernardino & Orange County. File a request. Dispatch (909) 333-6330.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* palette sampled from the client's reference draft */
+  --black:#000000;        /* header / footer / darkest */
+  --bg:#1a191e;           /* body — sampled #1A191E */
+  --panel:#201f25;
+  --panel-2:#28262e;
+  --line:#33313a;
+  --white:#ffffff;
+  --grey:#8a8790;
+  --grey-2:#c2c0c8;
+  --yellow:#e9b308;       /* sampled reference gold #E9B308 */
+  --yellow-deep:#c8990a;
+  --yellow-lite:#ffcf1a;
+  --blue:#1e5bff;
+  --blue-deep:#0b3fd1;
+  --danger:#ff3b30;
+  --maxw:1240px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--white);
+  font-family:'Inter',system-ui,sans-serif;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.mono{font-family:'JetBrains Mono',monospace}
+.display{font-family:'Anton',sans-serif;font-weight:400;letter-spacing:0.005em;line-height:0.92;text-transform:uppercase}
+.cond{font-family:'Oswald',sans-serif}
+
+/* ---------- HAZARD / UTILITY ---------- */
+.hazard-strip{
+  background:repeating-linear-gradient(45deg,var(--yellow) 0 22px,#111 22px 44px);
+  height:8px;
+}
+.ticker{
+  background:var(--yellow);
+  color:#000;
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  overflow:hidden;
+  white-space:nowrap;
+  border-bottom:1px solid #000;
+}
+.ticker__track{display:inline-flex;gap:0;animation:scroll 40s linear infinite;padding:8px 0}
+.ticker__track span{padding:0 26px;position:relative}
+.ticker__track span::after{content:"■";position:absolute;right:-4px;opacity:.55}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- HEADER ---------- */
+header{
+  position:sticky;top:0;z-index:60;
+  background:rgba(10,10,10,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px 24px;max-width:var(--maxw);margin:0 auto}
+.brand{display:flex;align-items:center;gap:14px}
+.brand img{height:34px;width:auto}
+.brand__badge{
+  font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.14em;
+  color:var(--yellow);border:1px solid var(--yellow);padding:3px 6px;border-radius:2px;text-transform:uppercase;
+}
+.nav__links{display:flex;align-items:center;gap:30px;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.06em;font-size:14px;font-weight:500}
+.nav__links a{color:var(--grey-2);transition:color .2s;position:relative}
+.nav__links a:hover{color:var(--white)}
+.nav__links a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--yellow);transition:width .2s}
+.nav__links a:hover::after{width:100%}
+.dispatch-btn{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--yellow);color:#000;font-family:'Oswald',sans-serif;font-weight:600;
+  text-transform:uppercase;letter-spacing:.05em;font-size:14px;
+  padding:11px 18px;border-radius:3px;border:1px solid var(--yellow-deep);
+  transition:transform .15s, box-shadow .15s;
+}
+.dispatch-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(233,179,8,.25)}
+.dispatch-btn small{display:block;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.14em;opacity:.7;line-height:1}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
+.burger span{width:26px;height:2px;background:var(--white)}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;
+  min-height:min(88vh,760px);
+  display:flex;align-items:center;
+  border-bottom:1px solid var(--line);
+  overflow:hidden;
+}
+.hero__bg{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(180deg,rgba(6,6,8,.62),rgba(6,6,8,.80) 60%,var(--bg)),
+    linear-gradient(90deg,rgba(6,6,8,.85),transparent 65%),
+    url('assets/hero-lot.jpg') center 30%/cover no-repeat #111;
+  filter:grayscale(.55) contrast(1.08) brightness(.95);
+}
+.hero__grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:56px 56px;
+  opacity:.15;mask-image:radial-gradient(ellipse at 30% 40%,#000,transparent 75%);
+}
+.hero .wrap{position:relative;z-index:2;padding-top:70px;padding-bottom:70px}
+.hero__file{
+  display:inline-flex;align-items:center;gap:12px;
+  border:1px solid var(--yellow);color:var(--yellow);
+  font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.16em;
+  padding:7px 12px;border-radius:2px;margin-bottom:22px;text-transform:uppercase;
+}
+.hero__unit{font-family:'JetBrains Mono',monospace;color:var(--grey-2);font-size:13px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:18px}
+.hero h1{font-size:clamp(46px,8.5vw,116px);text-transform:uppercase}
+.hero h1 .y{color:var(--yellow)}
+.hero__sub{max-width:600px;color:var(--grey-2);font-size:clamp(16px,2vw,20px);margin:26px 0 34px}
+.hero__cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:12px;
+  background:var(--yellow);color:#000;font-family:'Oswald',sans-serif;font-weight:700;
+  text-transform:uppercase;letter-spacing:.05em;font-size:17px;
+  padding:17px 30px;border-radius:3px;transition:transform .15s,box-shadow .15s;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(233,179,8,.3)}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:12px;
+  border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--white);
+  font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.05em;font-size:17px;
+  padding:17px 28px;border-radius:3px;transition:border-color .2s,background .2s;
+}
+.btn-ghost:hover{border-color:var(--yellow);background:rgba(233,179,8,.06)}
+.hero__status{display:flex;align-items:center;gap:10px;margin-top:26px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--grey-2);text-transform:uppercase}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 0 rgba(233,179,8,.6);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(233,179,8,.55)}70%{box-shadow:0 0 0 12px rgba(233,179,8,0)}100%{box-shadow:0 0 0 0 rgba(233,179,8,0)}}
+.hero__status b{color:var(--yellow)}
+
+/* ---------- CREDENTIAL STRIP ---------- */
+.creds{background:var(--panel);border-bottom:1px solid var(--line)}
+.creds__grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.cred{padding:34px 26px;border-right:1px solid var(--line)}
+.cred:last-child{border-right:none}
+.cred b{display:block;font-family:'Oswald',sans-serif;color:var(--yellow);font-size:15px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.cred span{font-family:'Anton',sans-serif;font-size:19px;text-transform:uppercase;line-height:1.05;display:block}
+
+/* ---------- SECTION SCAFFOLD ---------- */
+section{position:relative}
+.sec-pad{padding:96px 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:52px;flex-wrap:wrap}
+.tag{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.16em;
+  color:#000;background:var(--yellow);padding:5px 10px;border-radius:2px;text-transform:uppercase;margin-bottom:18px;
+}
+.tag.line{background:transparent;color:var(--yellow);border:1px solid var(--yellow)}
+h2.sec-title{font-size:clamp(34px,5.5vw,66px);text-transform:uppercase}
+.sec-head p{max-width:440px;color:var(--grey-2);font-size:16px}
+
+/* ---------- DIVISIONS ---------- */
+.divisions{background:var(--black);border-top:1px solid var(--line)}
+.div-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.div-card{
+  background:var(--panel);padding:38px 30px;position:relative;transition:background .25s;min-height:280px;
+  display:flex;flex-direction:column;
+}
+.div-card:hover{background:var(--panel-2)}
+.div-card__no{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--grey);letter-spacing:.15em}
+.div-card__ico{width:44px;height:44px;margin:14px 0 20px;color:var(--yellow)}
+.div-card h3{font-family:'Oswald',sans-serif;font-weight:700;font-size:26px;text-transform:uppercase;letter-spacing:.02em;margin-bottom:10px}
+.div-card p{color:var(--grey-2);font-size:15px;flex:1}
+.div-card__link{margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;color:var(--yellow);text-transform:uppercase;display:inline-flex;align-items:center;gap:8px}
+.div-card::before{content:"";position:absolute;top:0;left:0;width:0;height:3px;background:var(--yellow);transition:width .3s}
+.div-card:hover::before{width:100%}
+
+/* ---------- MARQUEE BANNER ---------- */
+.band{background:var(--yellow);color:#000;padding:22px 0;overflow:hidden;border-block:2px solid #000}
+.band__track{display:inline-flex;white-space:nowrap;animation:scroll 30s linear infinite;font-family:'Anton',sans-serif;font-size:34px;text-transform:uppercase;letter-spacing:.02em}
+.band__track span{padding:0 30px}
+.band__track span.o{-webkit-text-stroke:2px #000;color:transparent}
+
+/* ---------- JURISDICTION ---------- */
+.jur{background:var(--panel);border-block:1px solid var(--line)}
+.jur__inner{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.jur__list{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px}
+.jur__list li{list-style:none;display:flex;align-items:center;gap:12px;padding:16px 18px;background:var(--black);border:1px solid var(--line);border-radius:3px;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.03em;font-size:17px}
+.jur__list li b{color:var(--yellow);font-family:'JetBrains Mono',monospace;font-size:12px}
+.jur__map{position:relative;aspect-ratio:1/1;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:
+  linear-gradient(160deg,rgba(30,91,255,.12),transparent 60%),var(--black)}
+.jur__map .grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:40px 40px;opacity:.35}
+.jur__map .pin{position:absolute;width:14px;height:14px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 6px rgba(233,179,8,.15)}
+.jur__map .hq{width:20px;height:20px;background:var(--danger);box-shadow:0 0 0 8px rgba(255,59,48,.18);animation:pulse 2.4s infinite}
+.jur__map .lbl{position:absolute;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--grey-2);text-transform:uppercase}
+.jur__map .stamp{position:absolute;bottom:16px;right:16px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--grey);letter-spacing:.14em;text-transform:uppercase}
+
+/* ---------- PROCESS ---------- */
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.proc{padding:30px 26px;background:var(--panel);border:1px solid var(--line);border-radius:4px;position:relative;overflow:hidden}
+.proc__no{font-family:'Anton',sans-serif;font-size:66px;color:var(--panel-2);line-height:1;position:absolute;top:8px;right:14px}
+.proc h4{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:20px;letter-spacing:.03em;margin:0 0 10px;position:relative}
+.proc p{color:var(--grey-2);font-size:15px;position:relative}
+.proc__k{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--yellow);letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;display:block}
+
+/* ---------- STANDARDS / WHY ---------- */
+.why{background:var(--black);border-top:1px solid var(--line)}
+.why__inner{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.why__logo{position:relative;border:1px solid var(--line);border-radius:6px;background:var(--panel);padding:70px 50px;text-align:center;overflow:hidden}
+.why__logo img{width:100%;max-width:360px;margin:0 auto;opacity:.95}
+.why__logo::after{content:"NOT GOVERNMENT AFFILIATED";position:absolute;bottom:16px;left:0;right:0;text-align:center;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;color:var(--grey)}
+.why__logo .seal{position:absolute;top:18px;right:18px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--yellow);border:1px solid var(--yellow);padding:4px 8px;border-radius:2px}
+.why ul{list-style:none;margin-top:22px;display:flex;flex-direction:column;gap:2px}
+.why li{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--line)}
+.why li .ck{color:var(--yellow);flex:none;margin-top:2px}
+.why li b{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:19px;letter-spacing:.02em;display:block;margin-bottom:4px}
+.why li span{color:var(--grey-2);font-size:15px}
+
+/* ---------- STATS ---------- */
+.stats{background:var(--yellow);color:#000;border-block:2px solid #000}
+.stats__grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:48px 26px;border-right:1px solid rgba(0,0,0,.25);text-align:center}
+.stat:last-child{border-right:none}
+.stat b{font-family:'Anton',sans-serif;font-size:clamp(40px,5vw,64px);line-height:1;display:block}
+.stat span{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.06em;font-size:14px;font-weight:500;margin-top:8px;display:block}
+
+/* ---------- REVIEWS ---------- */
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.rev{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:30px 26px;position:relative}
+.rev__stars{color:var(--yellow);letter-spacing:3px;font-size:16px;margin-bottom:14px}
+.rev p{font-size:16px;color:var(--white);margin-bottom:20px;line-height:1.6}
+.rev__by{display:flex;align-items:center;gap:12px}
+.rev__by .av{width:40px;height:40px;border-radius:50%;background:var(--panel-2);display:grid;place-items:center;font-family:'Oswald',sans-serif;font-weight:700;color:var(--yellow)}
+.rev__by b{font-size:14px;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.03em}
+.rev__by span{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--grey);letter-spacing:.1em;display:block}
+.rev__ph{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--danger);letter-spacing:.1em;position:absolute;top:14px;right:16px}
+.rev__by span{display:flex;align-items:center;gap:6px}
+.rev__by span svg{width:13px;height:13px}
+.rev-score{display:inline-flex;align-items:center;gap:14px;background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:12px 20px;margin-top:6px}
+.rev-score .stars{color:var(--yellow);letter-spacing:2px;font-size:18px}
+.rev-score b{font-family:'Anton',sans-serif;font-size:26px;line-height:1}
+.rev-score em{font-style:normal;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--grey-2);letter-spacing:.08em;text-transform:uppercase}
+.rev-score img{height:16px}
+
+/* ---------- VIOLATIONS (parking-ticket cards) ---------- */
+.viol{background:var(--bg);border-top:1px solid var(--line)}
+.viol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px 30px}
+.ticket{
+  --paper:#efe6cf;--ink:#191712;--muted:#6f6853;
+  background:var(--paper);color:var(--ink);
+  font-family:'JetBrains Mono',monospace;border-radius:5px;
+  position:relative;box-shadow:0 16px 36px rgba(0,0,0,.5);
+  transform:rotate(-1.1deg);transition:transform .22s ease,box-shadow .22s ease;
+}
+.ticket:nth-child(3n+2){transform:rotate(.9deg)}
+.ticket:nth-child(3n){transform:rotate(-.4deg)}
+.ticket:hover{transform:rotate(0) translateY(-6px);box-shadow:0 26px 52px rgba(0,0,0,.62)}
+/* perforated top edge */
+.ticket::before{content:"";position:absolute;top:-6px;left:6px;right:6px;height:12px;z-index:2;
+  background:radial-gradient(circle at 7px 8px,var(--bg) 0 5px,transparent 5.5px) left top/15px 12px repeat-x}
+.ticket__hd{background:var(--ink);color:var(--paper);border-top:4px solid var(--yellow);
+  display:flex;justify-content:space-between;align-items:center;gap:8px;
+  padding:11px 15px 9px;border-radius:5px 5px 0 0;font-size:10px;font-weight:700;letter-spacing:.13em}
+.ticket__hd .no{color:var(--yellow)}
+.ticket__body{padding:16px 18px 18px}
+.ticket__viol{font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;
+  font-size:23px;letter-spacing:.01em;line-height:1.05;color:var(--ink);margin-bottom:12px}
+.ticket__fields{width:100%;border-collapse:collapse;font-size:11px;margin-bottom:12px}
+.ticket__fields td{padding:6px 0;border-bottom:1px dashed #cabf9f;vertical-align:middle}
+.ticket__fields td:first-child{color:var(--muted);letter-spacing:.08em;white-space:nowrap;padding-right:12px}
+.ticket__fields td:last-child{text-align:right;font-weight:700;letter-spacing:.04em}
+.ticket__fields .sev-hi{color:#c0161c}
+.ticket__desc{font-size:11.5px;line-height:1.5;color:#4a4536;margin-bottom:14px}
+.ticket__perf{border-top:2px dashed #cabf9f;margin:0 -18px 14px;position:relative}
+.ticket__perf::before,.ticket__perf::after{content:"";position:absolute;top:-9px;width:16px;height:16px;border-radius:50%;background:var(--bg)}
+.ticket__perf::before{left:-8px}.ticket__perf::after{right:-8px}
+.ticket__action{display:flex;flex-direction:column;gap:2px;margin-bottom:16px}
+.ticket__action span{font-size:9px;color:var(--muted);letter-spacing:.14em}
+.ticket__action b{font-family:'Oswald',sans-serif;font-size:17px;text-transform:uppercase;letter-spacing:.02em;color:var(--ink)}
+.ticket__foot{display:flex;justify-content:space-between;align-items:flex-end;gap:10px}
+.ticket__foot .barcode{height:38px;flex:1;max-width:118px;
+  background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 5px,transparent 5px 8px,var(--ink) 8px 11px,transparent 11px 13px)}
+.ticket__pen{text-align:right}
+.ticket__pen span{display:block;font-size:9px;color:var(--muted);letter-spacing:.12em}
+.ticket__pen b{font-family:'Oswald',sans-serif;font-size:14px;text-transform:uppercase;color:#188a3d}
+.ticket__stamp{position:absolute;top:58px;right:12px;z-index:3;transform:rotate(-13deg);
+  color:#c0161c;border:2.5px solid #c0161c;border-radius:5px;padding:3px 9px;
+  font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.68;pointer-events:none}
+
+/* ---------- MAP EMBED ---------- */
+.map-embed{position:relative;border:1px solid var(--line);border-radius:4px;overflow:hidden;aspect-ratio:1/1;background:var(--black)}
+.map-embed iframe{width:100%;height:100%;border:0;filter:grayscale(1) invert(.92) contrast(.9) hue-rotate(180deg) brightness(.9)}
+.map-embed .frame{position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(233,179,8,.25)}
+.map-embed .corner{position:absolute;width:16px;height:16px;border:2px solid var(--yellow);pointer-events:none}
+.map-embed .corner.tl{top:10px;left:10px;border-right:0;border-bottom:0}
+.map-embed .corner.tr{top:10px;right:10px;border-left:0;border-bottom:0}
+.map-embed .corner.bl{bottom:10px;left:10px;border-right:0;border-top:0}
+.map-embed .corner.br{bottom:10px;right:10px;border-left:0;border-top:0}
+.map-embed .stamp{position:absolute;bottom:12px;left:14px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--yellow);letter-spacing:.14em;text-transform:uppercase;background:rgba(0,0,0,.7);padding:4px 8px;border-radius:2px;pointer-events:none}
+
+/* ---------- FAQ / FIELD MANUAL ---------- */
+.faq{max-width:860px;margin:0 auto;border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;background:none;border:0;color:var(--white);text-align:left;cursor:pointer;
+  font-family:'Oswald',sans-serif;font-weight:500;text-transform:uppercase;letter-spacing:.02em;font-size:19px;
+  padding:24px 44px 24px 42px;position:relative;transition:color .2s}
+.faq-q:hover{color:var(--yellow)}
+.faq-q::before{content:"›";position:absolute;left:8px;top:22px;color:var(--yellow);font-size:22px}
+.faq-q::after{content:"+";position:absolute;right:12px;top:20px;color:var(--yellow);font-size:26px;font-weight:400;transition:transform .25s}
+.faq-item.open .faq-q::after{content:"–"}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-a p{color:var(--grey-2);font-size:15px;padding:0 44px 24px 42px}
+.faq-item.open .faq-a{max-height:240px}
+
+/* ---------- CTA / FORM ---------- */
+.request{background:var(--panel);border-top:1px solid var(--line)}
+.request__inner{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px}
+.request h2{font-size:clamp(34px,5vw,58px);text-transform:uppercase}
+.request .lead{color:var(--grey-2);font-size:17px;margin:22px 0 30px;max-width:400px}
+.contactline{display:flex;align-items:center;gap:14px;padding:16px 0;border-top:1px solid var(--line)}
+.contactline .ico{color:var(--yellow);flex:none}
+.contactline b{font-family:'Oswald',sans-serif;font-size:19px;text-transform:uppercase;letter-spacing:.03em;display:block}
+.contactline span{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--grey);letter-spacing:.12em;text-transform:uppercase}
+form{background:var(--black);border:1px solid var(--line);border-radius:5px;padding:34px}
+.form-head{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--yellow);text-transform:uppercase;margin-bottom:22px;display:flex;justify-content:space-between}
+.fg{margin-bottom:18px}
+.fg label{display:block;font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:13px;letter-spacing:.06em;color:var(--grey-2);margin-bottom:7px}
+.fg input,.fg select,.fg textarea{
+  width:100%;background:var(--panel);border:1px solid var(--line);border-radius:3px;
+  color:var(--white);font-family:'Inter',sans-serif;font-size:15px;padding:13px 15px;transition:border-color .2s;
+}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--yellow)}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-submit{width:100%;justify-content:center;cursor:pointer;border:none;font-size:18px;margin-top:6px}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--black);border-top:1px solid var(--line);padding-top:70px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:50px}
+.foot-brand img{height:38px;margin-bottom:20px}
+.foot-brand p{color:var(--grey);font-size:14px;max-width:280px}
+.foot-col h5{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:13px;letter-spacing:.12em;color:var(--yellow);margin-bottom:18px}
+.foot-col a,.foot-col p{display:block;color:var(--grey-2);font-size:14px;margin-bottom:11px;transition:color .2s}
+.foot-col a:hover{color:var(--white)}
+.foot-social{display:flex;gap:10px;margin-top:6px}
+.foot-social a{width:38px;height:38px;border:1px solid var(--line);border-radius:3px;display:grid;place-items:center;color:var(--grey-2)}
+.foot-social a:hover{border-color:var(--yellow);color:var(--yellow)}
+.foot-bar{border-top:1px solid var(--line);padding:24px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--grey);letter-spacing:.08em;text-transform:uppercase}
+.disclaimer{background:var(--panel);border-top:1px solid var(--line);padding:16px 0;text-align:center;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--grey);letter-spacing:.1em;text-transform:uppercase}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:1000px){
+  .div-grid{grid-template-columns:repeat(2,1fr)}
+  .jur__inner,.why__inner,.request__inner{grid-template-columns:1fr;gap:40px}
+  .proc-grid{grid-template-columns:repeat(2,1fr)}
+  .creds__grid,.stats__grid{grid-template-columns:repeat(2,1fr)}
+  .cred{border-bottom:1px solid var(--line)}
+  .rev-grid,.viol-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:30px}
+}
+@media(max-width:640px){
+  .nav__links,.dispatch-btn small{display:none}
+  .burger{display:flex}
+  .div-grid,.proc-grid,.viol-grid{grid-template-columns:1fr}
+  .fg-row{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .band__track{font-size:26px}
+  .sec-pad{padding:64px 0}
+}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:100;background:var(--black);flex-direction:column;padding:30px 24px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:26px;padding:16px 0;border-bottom:1px solid var(--line)}
+.mobile-menu .close{align-self:flex-end;font-size:34px;color:var(--yellow);cursor:pointer;margin-bottom:20px}
+</style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mm">
+  <div class="close" onclick="toggleMenu()">&times;</div>
+  <a href="#divisions" onclick="toggleMenu()">Divisions</a>
+  <a href="#violations" onclick="toggleMenu()">Violations</a>
+  <a href="#jurisdiction" onclick="toggleMenu()">Jurisdiction</a>
+  <a href="#reviews" onclick="toggleMenu()">Field Reports</a>
+  <a href="#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="#request" onclick="toggleMenu()">File a Request</a>
+  <a href="tel:19093336330" style="color:var(--yellow)">Dispatch · (909) 333-6330</a>
+</div>
+
+<div class="hazard-strip"></div>
+<div class="ticker">
+  <div class="ticker__track">
+    <span>General Liability $2M</span><span>Workers Comp Active</span><span>Free Site Inspections</span><span>Same-Day Estimates</span><span>Commercial Only</span><span>Dispatch On Duty</span>
+    <span>General Liability $2M</span><span>Workers Comp Active</span><span>Free Site Inspections</span><span>Same-Day Estimates</span><span>Commercial Only</span><span>Dispatch On Duty</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <nav class="nav">
+    <a href="#" class="brand">
+      <img src="assets/logo-white.svg" alt="Pavement Enforcement">
+      <span class="brand__badge">Div. 909</span>
+    </a>
+    <div class="nav__links">
+      <a href="#divisions">Divisions</a>
+      <a href="#violations">Violations</a>
+      <a href="#jurisdiction">Jurisdiction</a>
+      <a href="#reviews">Field Reports</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a href="tel:19093336330" class="dispatch-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>Dispatch<small>(909) 333-6330</small></span>
+    </a>
+    <div class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__bg"></div>
+  <div class="hero__grid"></div>
+  <div class="wrap">
+    <span class="hero__file">CASE FILE // OPS-24 <b style="color:var(--white)">●</b> ACTIVE</span>
+    <div class="hero__unit">SoCal Commercial Paving Division · Unit 909</div>
+    <h1 class="display">Parking Lots<br><span class="y">Under</span><br>Jurisdiction.</h1>
+    <p class="hero__sub">We enforce the standards big-name property owners expect — seal coat, striping, patch, overlays and full mill &amp; pave. Fast quotes. Clean job sites. Zero citations against your lot.</p>
+    <div class="hero__cta">
+      <a href="#request" class="btn-primary">File a Request
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="tel:19093336330" class="btn-ghost">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Dispatch · (909) 333-6330
+      </a>
+    </div>
+    <div class="hero__status"><span class="dot"></span> Reply within <b>&nbsp;5 minutes&nbsp;</b> · Dispatch is on duty</div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<div class="creds">
+  <div class="creds__grid" style="max-width:var(--maxw);margin:0 auto">
+    <div class="cred"><b>Free</b><span>Site Inspections</span></div>
+    <div class="cred"><b>Commercial</b><span>Parking Lot Specialists</span></div>
+    <div class="cred"><b>Same Day</b><span>Estimates</span></div>
+    <div class="cred"><b>Licensed &amp;</b><span>Insured</span></div>
+  </div>
+</div>
+
+<!-- DIVISIONS -->
+<section class="divisions sec-pad" id="divisions">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="tag line">CF-01 // Divisions · Authorized Services</span>
+        <h2 class="sec-title display">Every Service<br>Your Lot Will<br>Ever Need.</h2>
+      </div>
+      <p>We only work commercial. Retail centers, office parks, industrial, multifamily and HOA — from a single stall patch to a full mill &amp; pave.</p>
+    </div>
+    <div class="div-grid">
+      <div class="div-card">
+        <span class="div-card__no">DIV // 01</span>
+        <svg class="div-card__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 20h18M5 20V9l7-5 7 5v11M9 20v-6h6v6"/></svg>
+        <h3>Asphalt Paving</h3>
+        <p>New installs and full replacement — grade, base, compaction and hot-mix laydown built to carry commercial traffic loads.</p>
+        <a class="div-card__link" href="#request">Request scope →</a>
+      </div>
+      <div class="div-card">
+        <span class="div-card__no">DIV // 02</span>
+        <svg class="div-card__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7c4-3 12-3 16 0M4 12c4-3 12-3 16 0M4 17c4-3 12-3 16 0"/></svg>
+        <h3>Sealcoating</h3>
+        <p>Protective seal coat that shields your lot from UV, oil and water — the cheapest way to add years before repaving.</p>
+        <a class="div-card__link" href="#request">Request scope →</a>
+      </div>
+      <div class="div-card">
+        <span class="div-card__no">DIV // 03</span>
+        <svg class="div-card__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18M8 6h1M8 11h1M8 16h1M15 6h1M15 11h1M15 16h1"/></svg>
+        <h3>Parking Lot Striping</h3>
+        <p>Crisp layouts, stall counts, fire lanes and directional markings — sharp lines that keep your property compliant and clean.</p>
+        <a class="div-card__link" href="#request">Request scope →</a>
+      </div>
+      <div class="div-card">
+        <span class="div-card__no">DIV // 04</span>
+        <svg class="div-card__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4l6 16M20 4l-6 16M8 12h8"/></svg>
+        <h3>Crack Sealing</h3>
+        <p>Hot-rubber crack seal that stops water intrusion before it undermines your base and turns a $200 fix into a $20k repair.</p>
+        <a class="div-card__link" href="#request">Request scope →</a>
+      </div>
+      <div class="div-card">
+        <span class="div-card__no">DIV // 05</span>
+        <svg class="div-card__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="7" r="3"/><path d="M6 21v-3a6 6 0 0 1 12 0v3"/></svg>
+        <h3>ADA Compliance</h3>
+        <p>Accessible stalls, ramps, truncated domes and signage brought up to current ADA code — keep your lot inspection-ready.</p>
+        <a class="div-card__link" href="#request">Request scope →</a>
+      </div>
+      <div class="div-card">
+        <span class="div-card__no">DIV // 06</span>
+        <svg class="div-card__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+        <h3>Concrete Services</h3>
+        <p>Curbs, gutters, sidewalks, aprons and pads — poured, finished and tied into your asphalt for a seamless property.</p>
+        <a class="div-card__link" href="#request">Request scope →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="band">
+  <div class="band__track">
+    <span>Sealcoat</span><span class="o">Striping</span><span>Crack Seal</span><span class="o">Overlays</span><span>ADA</span><span class="o">Mill &amp; Pave</span><span>Concrete</span><span class="o">Repairs</span>
+    <span>Sealcoat</span><span class="o">Striping</span><span>Crack Seal</span><span class="o">Overlays</span><span>ADA</span><span class="o">Mill &amp; Pave</span><span>Concrete</span><span class="o">Repairs</span>
+  </div>
+</div>
+
+<!-- COMMON VIOLATIONS -->
+<section class="viol sec-pad" id="violations">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="tag line">CF-02 // Common Violations</span>
+        <h2 class="sec-title display">Know The<br>Warning Signs.</h2>
+      </div>
+      <p>Pavement fails from the surface down. Catch these early and a cheap repair keeps a small problem from citing your whole lot.</p>
+    </div>
+    <div class="viol-grid">
+      <div class="ticket">
+        <div class="ticket__hd"><span>&#9888; NOTICE OF VIOLATION</span><span class="no">No. 909-01</span></div>
+        <div class="ticket__body">
+          <div class="ticket__viol">Potholes</div>
+          <table class="ticket__fields">
+            <tr><td>Violation Code</td><td>PE-01 · POTHOLE</td></tr>
+            <tr><td>Severity</td><td class="sev-hi">■■■ HIGH</td></tr>
+            <tr><td>Location</td><td>YOUR LOT</td></tr>
+          </table>
+          <p class="ticket__desc">Water and traffic have broken through the surface — a liability hazard that only spreads and invites claims.</p>
+          <div class="ticket__perf"></div>
+          <div class="ticket__action"><span>REQUIRED ACTION</span><b>Patch / Repair</b></div>
+          <div class="ticket__foot"><div class="barcode"></div><div class="ticket__pen"><span>PENALTY</span><b>Free Inspection</b></div></div>
+        </div>
+        <div class="ticket__stamp">Action Req'd</div>
+      </div>
+      <div class="ticket">
+        <div class="ticket__hd"><span>&#9888; NOTICE OF VIOLATION</span><span class="no">No. 909-02</span></div>
+        <div class="ticket__body">
+          <div class="ticket__viol">Alligator Cracking</div>
+          <table class="ticket__fields">
+            <tr><td>Violation Code</td><td>PE-02 · CRACKING</td></tr>
+            <tr><td>Severity</td><td class="sev-hi">■■■ HIGH</td></tr>
+            <tr><td>Location</td><td>YOUR LOT</td></tr>
+          </table>
+          <p class="ticket__desc">Interconnected cracks like scales mean the base is failing underneath. Left alone, it turns into full replacement.</p>
+          <div class="ticket__perf"></div>
+          <div class="ticket__action"><span>REQUIRED ACTION</span><b>Crack Seal / Overlay</b></div>
+          <div class="ticket__foot"><div class="barcode"></div><div class="ticket__pen"><span>PENALTY</span><b>Free Inspection</b></div></div>
+        </div>
+        <div class="ticket__stamp">Action Req'd</div>
+      </div>
+      <div class="ticket">
+        <div class="ticket__hd"><span>&#9888; NOTICE OF VIOLATION</span><span class="no">No. 909-03</span></div>
+        <div class="ticket__body">
+          <div class="ticket__viol">Faded &amp; Graying</div>
+          <table class="ticket__fields">
+            <tr><td>Violation Code</td><td>PE-03 · OXIDATION</td></tr>
+            <tr><td>Severity</td><td>■■□ MEDIUM</td></tr>
+            <tr><td>Location</td><td>YOUR LOT</td></tr>
+          </table>
+          <p class="ticket__desc">A gray, brittle surface has lost its binder to UV and oxidation — the first sign your lot needs seal coat protection.</p>
+          <div class="ticket__perf"></div>
+          <div class="ticket__action"><span>REQUIRED ACTION</span><b>Sealcoating</b></div>
+          <div class="ticket__foot"><div class="barcode"></div><div class="ticket__pen"><span>PENALTY</span><b>Free Inspection</b></div></div>
+        </div>
+      </div>
+      <div class="ticket">
+        <div class="ticket__hd"><span>&#9888; NOTICE OF VIOLATION</span><span class="no">No. 909-04</span></div>
+        <div class="ticket__body">
+          <div class="ticket__viol">Standing Water</div>
+          <table class="ticket__fields">
+            <tr><td>Violation Code</td><td>PE-04 · PONDING</td></tr>
+            <tr><td>Severity</td><td>■■□ MEDIUM</td></tr>
+            <tr><td>Location</td><td>YOUR LOT</td></tr>
+          </table>
+          <p class="ticket__desc">Puddles that linger after rain point to grading or drainage failure — accelerating damage and freeze-thaw breakdown.</p>
+          <div class="ticket__perf"></div>
+          <div class="ticket__action"><span>REQUIRED ACTION</span><b>Regrade / Repair</b></div>
+          <div class="ticket__foot"><div class="barcode"></div><div class="ticket__pen"><span>PENALTY</span><b>Free Inspection</b></div></div>
+        </div>
+      </div>
+      <div class="ticket">
+        <div class="ticket__hd"><span>&#9888; NOTICE OF VIOLATION</span><span class="no">No. 909-05</span></div>
+        <div class="ticket__body">
+          <div class="ticket__viol">Worn Striping</div>
+          <table class="ticket__fields">
+            <tr><td>Violation Code</td><td>PE-05 · FADED LINES</td></tr>
+            <tr><td>Severity</td><td>■■□ MEDIUM</td></tr>
+            <tr><td>Location</td><td>YOUR LOT</td></tr>
+          </table>
+          <p class="ticket__desc">Faded stalls, fire lanes and arrows aren't just ugly — they're a compliance and safety liability for your tenants.</p>
+          <div class="ticket__perf"></div>
+          <div class="ticket__action"><span>REQUIRED ACTION</span><b>Restriping</b></div>
+          <div class="ticket__foot"><div class="barcode"></div><div class="ticket__pen"><span>PENALTY</span><b>Free Inspection</b></div></div>
+        </div>
+      </div>
+      <div class="ticket">
+        <div class="ticket__hd"><span>&#9888; NOTICE OF VIOLATION</span><span class="no">No. 909-06</span></div>
+        <div class="ticket__body">
+          <div class="ticket__viol">ADA Non-Compliance</div>
+          <table class="ticket__fields">
+            <tr><td>Violation Code</td><td>PE-06 · ADA</td></tr>
+            <tr><td>Severity</td><td class="sev-hi">■■■ HIGH</td></tr>
+            <tr><td>Location</td><td>YOUR LOT</td></tr>
+          </table>
+          <p class="ticket__desc">Missing accessible stalls, signage or ramps put you at direct risk of fines and lawsuits. Non-negotiable to fix.</p>
+          <div class="ticket__perf"></div>
+          <div class="ticket__action"><span>REQUIRED ACTION</span><b>ADA Upgrade</b></div>
+          <div class="ticket__foot"><div class="barcode"></div><div class="ticket__pen"><span>PENALTY</span><b>Free Inspection</b></div></div>
+        </div>
+        <div class="ticket__stamp">Action Req'd</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:44px">
+      <a href="#request" class="btn-primary">Report a Violation on Your Lot
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- JURISDICTION -->
+<section class="jur sec-pad" id="jurisdiction">
+  <div class="wrap">
+    <div class="jur__inner">
+      <div>
+        <span class="tag">Areas Under Jurisdiction</span>
+        <h2 class="sec-title display" style="font-size:clamp(32px,5vw,58px)">We Patrol<br>Southern California.</h2>
+        <p style="color:var(--grey-2);max-width:460px;margin-top:18px">Dispatched out of Pomona and covering commercial property across five counties. If your lot is in our jurisdiction, we roll a truck.</p>
+        <ul class="jur__list">
+          <li><b>01</b> Inland Empire</li>
+          <li><b>02</b> Riverside County</li>
+          <li><b>03</b> San Bernardino Co.</li>
+          <li><b>04</b> Los Angeles County</li>
+          <li><b>05</b> Orange County</li>
+          <li><b>HQ</b> Pomona, CA</li>
+        </ul>
+      </div>
+      <div class="map-embed">
+        <iframe loading="lazy" title="Pavement Enforcement service area — Southern California" src="https://www.google.com/maps?q=Pomona,+California&z=8&output=embed"></iframe>
+        <div class="frame"></div>
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="stamp">◉ HQ · Pomona, CA · 5-County Coverage</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats__grid" style="max-width:var(--maxw);margin:0 auto">
+    <div class="stat"><b>5.0★</b><span>Google Rated</span></div>
+    <div class="stat"><b>5 MIN</b><span>Avg. Response</span></div>
+    <div class="stat"><b>5</b><span>Counties Covered</span></div>
+    <div class="stat"><b>100%</b><span>Commercial Focus</span></div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<section class="sec-pad" id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="tag line">Protocol // How It Works</span>
+        <h2 class="sec-title display">File. Assess.<br>Enforce.</h2>
+      </div>
+      <p>No runaround, no ghosting. A clear four-step protocol from first call to a lot that passes inspection.</p>
+    </div>
+    <div class="proc-grid">
+      <div class="proc"><span class="proc__no">01</span><span class="proc__k">Step 01</span><h4>File a Request</h4><p>Call dispatch or submit the form. Tell us the property and the problem — we log the case same day.</p></div>
+      <div class="proc"><span class="proc__no">02</span><span class="proc__k">Step 02</span><h4>Site Inspection</h4><p>We walk your lot free of charge, measure, photograph and diagnose the real problem — not the biggest invoice.</p></div>
+      <div class="proc"><span class="proc__no">03</span><span class="proc__k">Step 03</span><h4>Scope &amp; Quote</h4><p>You get a clear written scope with honest options — repair, maintain or replace — and a fast, fixed estimate.</p></div>
+      <div class="proc"><span class="proc__no">04</span><span class="proc__k">Step 04</span><h4>Enforce the Work</h4><p>Crews mobilize, work clean, and leave your lot striped, sealed and inspection-ready. Warrantied.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY / STANDARDS -->
+<section class="why sec-pad">
+  <div class="wrap">
+    <div class="why__inner">
+      <div class="why__logo">
+        <span class="seal">EST. UNIT 909</span>
+        <img src="assets/logo-white.svg" alt="Pavement Enforcement">
+      </div>
+      <div>
+        <span class="tag">The Standard</span>
+        <h2 class="sec-title display" style="font-size:clamp(30px,4.5vw,52px)">We Solve The<br>Right Problem.</h2>
+        <p style="color:var(--grey-2);margin-top:16px;max-width:480px">Anyone can sell you asphalt. At Pavement Enforcement we recommend the solution that's right for your property — not the one with the biggest price tag.</p>
+        <ul>
+          <li><svg class="ck" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><div><b>Honest Recommendations</b><span>Repair, maintain or replace — we tell you what your lot actually needs.</span></div></li>
+          <li><svg class="ck" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><div><b>5-Star Rated on Google</b><span>Known across SoCal for fast response times and clean job sites.</span></div></li>
+          <li><svg class="ck" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><div><b>Licensed &amp; Insured</b><span>$2M general liability and active workers' comp — your property is protected.</span></div></li>
+          <li><svg class="ck" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><div><b>Built For The Long Haul</b><span>A company you can trust — not just for one job, but for years to come.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec-pad" id="reviews">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="tag line">Field Reports · Verified</span>
+        <h2 class="sec-title display">On The Record.</h2>
+        <div class="rev-score">
+          <span class="stars">★★★★★</span>
+          <b>5.0</b>
+          <em>Rated on Google<br>Business Profile</em>
+        </div>
+      </div>
+      <p style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--danger);letter-spacing:.08em">⚠ PLACEHOLDER COPY — swap in real Google reviews before launch</p>
+    </div>
+    <div class="rev-grid">
+      <div class="rev"><span class="rev__ph">[PH]</span><div class="rev__stars">★★★★★</div><p>"Fast, professional and the striping came out perfect. Our tenants noticed the difference the next morning. Would use again in a heartbeat."</p><div class="rev__by"><div class="av">JM</div><div><b>Property Manager</b><span><svg viewBox="0 0 24 24" fill="var(--yellow)"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21 8 14 2 9.4h7.6z"/></svg>Verified Google review</span></div></div></div>
+      <div class="rev"><span class="rev__ph">[PH]</span><div class="rev__stars">★★★★★</div><p>"Diego walked our whole lot, showed us exactly what needed sealing and what could wait. Honest crew — rare in this trade."</p><div class="rev__by"><div class="av">HO</div><div><b>HOA Board</b><span><svg viewBox="0 0 24 24" fill="var(--yellow)"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21 8 14 2 9.4h7.6z"/></svg>Verified Google review</span></div></div></div>
+      <div class="rev"><span class="rev__ph">[PH]</span><div class="rev__stars">★★★★★</div><p>"Needed ADA work done before an inspection deadline. They mobilized fast and passed us with zero issues. Highly recommend."</p><div class="rev__by"><div class="av">RS</div><div><b>Facilities Director</b><span><svg viewBox="0 0 24 24" fill="var(--yellow)"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21 8 14 2 9.4h7.6z"/></svg>Verified Google review</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ / FIELD MANUAL -->
+<section class="sec-pad" id="faq" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head" style="justify-content:center;text-align:center;flex-direction:column;align-items:center;margin-bottom:40px">
+      <span class="tag line">Field Manual // FAQ</span>
+      <h2 class="sec-title display">Standard Questions.</h2>
+    </div>
+    <div class="faq">
+      <div class="faq-item open">
+        <button class="faq-q" onclick="toggleFaq(this)">Do you only work on commercial properties?</button>
+        <div class="faq-a"><p>Correct. We specialize in commercial lots — retail centers, office parks, industrial, multifamily, HOAs, mobile home parks and churches. That focus is exactly why we're fast and get it right the first time.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Is the site inspection really free?</button>
+        <div class="faq-a"><p>Yes. We walk your lot, measure, photograph and diagnose the actual problem at no cost — then give you a clear written scope and a fast estimate. No obligation.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How fast can you get me a quote?</button>
+        <div class="faq-a"><p>Dispatch typically replies within minutes and we aim to get you a same-day estimate after the inspection. Deadlines for an inspection or ADA compliance? Tell us — we'll prioritize it.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Are you licensed and insured?</button>
+        <div class="faq-a"><p>We carry $2M general liability and active workers' comp, so your property is fully protected during the job. Contractor license is in final processing — ask dispatch for current documentation.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Should I repair, sealcoat, or fully replace?</button>
+        <div class="faq-a"><p>That's exactly what the inspection answers. We recommend the solution that's right for your property and budget — not the one with the biggest price tag. Sometimes a $200 crack seal saves a $20k repave.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Which areas do you serve?</button>
+        <div class="faq-a"><p>All of Southern California from our Pomona base — the Inland Empire, Riverside County, San Bernardino County, LA County and Orange County. If your lot is in the region, we roll a truck.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REQUEST / CONTACT -->
+<section class="request sec-pad" id="request">
+  <div class="wrap">
+    <div class="request__inner">
+      <div>
+        <span class="tag">File a Request</span>
+        <h2 class="display">Report Your<br>Lot. Get a<br>Fast Quote.</h2>
+        <p class="lead">Tell dispatch what's going on with your pavement. Free site inspection, honest scope, same-day estimate.</p>
+        <div class="contactline">
+          <svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <div><b>(909) 333-6330</b><span>Dispatch · Mon–Fri 8–6 · Sat 8–1</span></div>
+        </div>
+        <div class="contactline">
+          <svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+          <div><b>diego@pavementenforcement.com</b><span>Email the division office</span></div>
+        </div>
+        <div class="contactline">
+          <svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div><b>Serving All of SoCal</b><span>IE · Riverside · San Bernardino · LA · Orange</span></div>
+        </div>
+      </div>
+      <form onsubmit="return submitForm(event)">
+        <div class="form-head"><span>REQUEST FORM · CF-909</span><span>● OPEN</span></div>
+        <div class="fg-row">
+          <div class="fg"><label>Name</label><input required placeholder="Full name"></div>
+          <div class="fg"><label>Phone</label><input required type="tel" placeholder="(909) 000-0000"></div>
+        </div>
+        <div class="fg-row">
+          <div class="fg"><label>Email</label><input type="email" placeholder="you@company.com"></div>
+          <div class="fg"><label>Property Type</label>
+            <select><option>Retail Center</option><option>Office Park</option><option>Industrial</option><option>Multifamily / Apartments</option><option>HOA</option><option>Mobile Home Park</option><option>Church</option><option>Other</option></select>
+          </div>
+        </div>
+        <div class="fg"><label>Property Address / City</label><input placeholder="Street, City"></div>
+        <div class="fg"><label>Service Needed</label>
+          <select><option>Not sure — need an inspection</option><option>Asphalt Paving / Replacement</option><option>Asphalt Repair</option><option>Sealcoating</option><option>Crack Sealing</option><option>Parking Lot Striping</option><option>ADA Compliance</option><option>Concrete</option></select>
+        </div>
+        <div class="fg"><label>Describe the Situation</label><textarea rows="3" placeholder="Tell us about your lot…"></textarea></div>
+        <button type="submit" class="btn-primary form-submit">Submit Request
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <p style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--grey);letter-spacing:.08em;margin-top:14px;text-align:center">⚠ Demo form — connect to email/CRM before launch</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="assets/logo-white.svg" alt="Pavement Enforcement">
+        <p>Commercial asphalt, sealcoating, striping and ADA compliance — protecting property owners' pavement investments across Southern California.</p>
+        <div class="foot-social">
+          <a href="https://instagram.com/pavementenforcement" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="https://tiktok.com/@pavementenforcement" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 3a5 5 0 0 0 5 5v3a8 8 0 0 1-5-1.7V15a6 6 0 1 1-6-6v3a3 3 0 1 0 3 3V3h3z"/></svg></a>
+          <a href="https://www.facebook.com/PavementEnforcement/" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9V7c0-1 .5-1.5 1.5-1.5H17V2h-2.5C11.5 2 10 3.7 10 6.5V9H8v3.5h2V22h4v-9.5h2.7L17 9h-3z"/></svg></a>
+          <a href="https://www.yelp.com/biz/pavement-enforcement-pomona" aria-label="Yelp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 0 2 .5 2 1.5V11c0 1-1 1.5-2 1l-3-2c-1-.5-.5-2 .5-2.5L12 6V3.5C12 2.5 11.5 2 12 2zM6 13l3.5.5c1 .2 1.2 1.5.3 2L7 17.5c-1 .6-2-.4-1.7-1.4l.7-3zM18 13l-.7 3c-.3 1 .7 2 1.7 1.4l2.8-2c.9-.5.7-1.8-.3-2L18 13z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Divisions</h5>
+        <a href="#request">Asphalt Paving</a>
+        <a href="#request">Asphalt Repair</a>
+        <a href="#request">Sealcoating</a>
+        <a href="#request">Crack Sealing</a>
+        <a href="#request">Striping</a>
+        <a href="#request">ADA Compliance</a>
+        <a href="#request">Concrete</a>
+      </div>
+      <div class="foot-col">
+        <h5>Jurisdiction</h5>
+        <p>Inland Empire</p>
+        <p>Riverside County</p>
+        <p>San Bernardino County</p>
+        <p>Los Angeles County</p>
+        <p>Orange County</p>
+      </div>
+      <div class="foot-col">
+        <h5>Dispatch</h5>
+        <a href="tel:19093336330">(909) 333-6330</a>
+        <a href="mailto:diego@pavementenforcement.com">diego@pavementenforcement.com</a>
+        <p>Mon–Fri · 8AM–6PM</p>
+        <p>Sat · 8AM–1PM</p>
+        <p>Sun · Closed</p>
+      </div>
+    </div>
+    <div class="foot-bar">
+      <span>© 2026 Pavement Enforcement · Pomona, CA</span>
+      <span>CSLB Lic. # [PENDING] · EIN 42-1787580</span>
+    </div>
+  </div>
+  <div class="disclaimer">Pavement Enforcement is a private commercial paving contractor and is not affiliated with any government agency, law enforcement, or municipality.</div>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('mm').classList.toggle('open')}
+function submitForm(e){e.preventDefault();alert('Demo only — this form is not yet connected. Call dispatch at (909) 333-6330.');return false}
+function toggleFaq(btn){var it=btn.parentElement;it.classList.toggle('open')}
+</script>
+</body>
+</html>
