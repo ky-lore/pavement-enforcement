@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pavement Enforcement — SoCal Commercial Paving Division</title>
-<meta name="description" content="Commercial asphalt, sealcoating, striping & ADA compliance across the Inland Empire, LA, Riverside, San Bernardino & Orange County. File a request. Dispatch (909) 333-6330.">
+<meta name="description" content="Commercial asphalt, sealcoating, striping & ADA compliance across the Inland Empire, Los Angeles, Riverside, San Bernardino & Orange County. Request a free site inspection. Call now (909) 333-6330.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -155,7 +155,7 @@ header{
 .hero__status b{color:var(--yellow)}
 
 /* ---------- FUNNEL (top lead capture) ---------- */
-.funnel{background:var(--surface);border-bottom:1px solid var(--line)}
+.funnel{background:var(--surface);border-bottom:1px solid var(--line);scroll-margin-top:90px}
 .funnel__inner{display:grid;grid-template-columns:1fr 1.12fr;gap:48px;align-items:center;padding:46px 0}
 .funnel__copy h2{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(28px,3.6vw,46px);line-height:.94;letter-spacing:.01em;color:var(--ink)}
 .funnel__copy p{color:var(--grey-2);font-size:16px;margin:14px 0 18px;max-width:430px}
@@ -342,7 +342,7 @@ h2.sec-title{font-size:clamp(34px,5.5vw,66px);text-transform:uppercase}
 .faq-item.open .faq-q::after{content:"–"}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
 .faq-a p{color:var(--grey-2);font-size:15px;padding:0 44px 24px 42px}
-.faq-item.open .faq-a{max-height:240px}
+.faq-item.open .faq-a{max-height:320px}
 
 /* ---------- CTA / FORM ---------- */
 .request{background:var(--surface);border-top:1px solid var(--line)}
@@ -412,11 +412,11 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
   <div class="close" onclick="toggleMenu()">&times;</div>
   <a href="#estimate" onclick="toggleMenu()">Free Estimate</a>
   <a href="#divisions" onclick="toggleMenu()">Services</a>
-  <a href="#violations" onclick="toggleMenu()">Violations</a>
+  <a href="#violations" onclick="toggleMenu()">Pavement Problems</a>
   <a href="#reviews" onclick="toggleMenu()">Reviews</a>
   <a href="#faq" onclick="toggleMenu()">FAQ</a>
   <a href="#request" onclick="toggleMenu()">Contact</a>
-  <a href="tel:19093336330" style="color:var(--yellow)">Dispatch · (909) 333-6330</a>
+  <a href="tel:19093336330" style="color:var(--yellow)">Call Now · (909) 333-6330</a>
 </div>
 
 <!-- HEADER -->
@@ -428,13 +428,13 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
     <div class="nav__links">
       <a href="#estimate">Free Estimate</a>
       <a href="#divisions">Services</a>
-      <a href="#violations">Violations</a>
+      <a href="#violations">Pavement Problems</a>
       <a href="#reviews">Reviews</a>
       <a href="#faq">FAQ</a>
     </div>
     <a href="tel:19093336330" class="dispatch-btn">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      <span>Dispatch<small>(909) 333-6330</small></span>
+      <span>Call Now<small>(909) 333-6330</small></span>
     </a>
     <div class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
   </nav>
@@ -445,18 +445,19 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
   <div class="hero__bg"></div>
   <div class="hero__grid"></div>
   <div class="wrap">
-    <h1 class="display">Parking Lots<br><span class="y">Under</span><br>Jurisdiction.</h1>
+    <div class="hero__unit">Inspect &bull; Enforce &bull; Restore</div>
+    <h1 class="display">Commercial Parking Lots.<br><span class="y">Under</span><br>Enforcement.</h1>
     <p class="hero__sub">We enforce the standards big-name property owners expect — seal coat, striping, patch, overlays and full mill &amp; pave. Fast quotes. Clean job sites. Zero citations against your lot.</p>
     <div class="hero__cta">
-      <a href="#request" class="btn-primary">File a Request
+      <a href="#request" class="btn-primary">Request a Free Site Inspection
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
       <a href="tel:19093336330" class="btn-ghost">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        Dispatch · (909) 333-6330
+        Call Now · (909) 333-6330
       </a>
     </div>
-    <div class="hero__status"><span class="dot"></span> <b>&nbsp;Free Estimates&nbsp;</b> · Licensed &amp; Insured · Commercial Only</div>
+    <div class="hero__status"><span class="dot"></span> <b>&nbsp;Free Estimates&nbsp;</b> · Licensed &amp; Insured</div>
   </div>
 </section>
 
@@ -475,7 +476,8 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
     <form class="funnel__form" onsubmit="return submitForm(event)">
       <input required placeholder="Name">
       <input required type="tel" placeholder="Phone">
-      <input class="full" type="email" placeholder="Email (optional)">
+      <input required type="email" placeholder="Email">
+      <input placeholder="Property Address">
       <select class="full">
         <option value="">Property type…</option>
         <option>Retail Center</option><option>Office Park</option><option>Industrial</option>
@@ -485,7 +487,6 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
       <button type="submit" class="btn-primary">Get My Free Estimate
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </button>
-      <p class="funnel__note">&#9888; Demo form — connect to email/CRM before launch</p>
     </form>
   </div>
 </section>
@@ -498,46 +499,40 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
     </div>
     <div class="div-grid">
       <div class="div-card">
-        <span class="div-card__no">DIV // 01</span>
         <svg class="div-card__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 20h18M5 20V9l7-5 7 5v11M9 20v-6h6v6"/></svg>
         <h3>Asphalt Paving</h3>
         <p>New installs and full replacement — grade, base, compaction and hot-mix laydown built to carry commercial traffic loads.</p>
-        <a class="div-card__link" href="#request">Request scope →</a>
+        <a class="div-card__link" href="#request">Request Free Inspection →</a>
       </div>
       <div class="div-card">
-        <span class="div-card__no">DIV // 02</span>
         <svg class="div-card__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7c4-3 12-3 16 0M4 12c4-3 12-3 16 0M4 17c4-3 12-3 16 0"/></svg>
         <h3>Sealcoating</h3>
         <p>Protective seal coat that shields your lot from UV, oil and water — the cheapest way to add years before repaving.</p>
-        <a class="div-card__link" href="#request">Request scope →</a>
+        <a class="div-card__link" href="#request">Request Free Inspection →</a>
       </div>
       <div class="div-card">
-        <span class="div-card__no">DIV // 03</span>
         <svg class="div-card__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18M8 6h1M8 11h1M8 16h1M15 6h1M15 11h1M15 16h1"/></svg>
         <h3>Parking Lot Striping</h3>
         <p>Crisp layouts, stall counts, fire lanes and directional markings — sharp lines that keep your property compliant and clean.</p>
-        <a class="div-card__link" href="#request">Request scope →</a>
+        <a class="div-card__link" href="#request">Request Free Inspection →</a>
       </div>
       <div class="div-card">
-        <span class="div-card__no">DIV // 04</span>
         <svg class="div-card__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4l6 16M20 4l-6 16M8 12h8"/></svg>
         <h3>Crack Sealing</h3>
         <p>Hot-rubber crack seal that stops water intrusion before it undermines your base and turns a $200 fix into a $20k repair.</p>
-        <a class="div-card__link" href="#request">Request scope →</a>
+        <a class="div-card__link" href="#request">Request Free Inspection →</a>
       </div>
       <div class="div-card">
-        <span class="div-card__no">DIV // 05</span>
         <svg class="div-card__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="7" r="3"/><path d="M6 21v-3a6 6 0 0 1 12 0v3"/></svg>
         <h3>ADA Compliance</h3>
         <p>Accessible stalls, ramps, truncated domes and signage brought up to current ADA code — keep your lot inspection-ready.</p>
-        <a class="div-card__link" href="#request">Request scope →</a>
+        <a class="div-card__link" href="#request">Request Free Inspection →</a>
       </div>
       <div class="div-card">
-        <span class="div-card__no">DIV // 06</span>
         <svg class="div-card__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
         <h3>Concrete Services</h3>
         <p>Curbs, gutters, sidewalks, aprons and pads — poured, finished and tied into your asphalt for a seamless property.</p>
-        <a class="div-card__link" href="#request">Request scope →</a>
+        <a class="div-card__link" href="#request">Request Free Inspection →</a>
       </div>
     </div>
   </div>
@@ -559,11 +554,11 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
     </div>
     <div class="viol-grid">
       <div class="ticket">
-        <div class="ticket__hd"><span>&#9888; NOTICE OF VIOLATION</span><span class="no">No. 909-01</span></div>
+        <div class="ticket__hd"><span>&#9888; NOTICE OF PAVEMENT ISSUE</span><span class="no">No. 909-01</span></div>
         <div class="ticket__body">
           <div class="ticket__viol">Potholes</div>
           <table class="ticket__fields">
-            <tr><td>Violation Code</td><td>PE-01 · POTHOLE</td></tr>
+            <tr><td>Issue Code</td><td>PE-01 · POTHOLE</td></tr>
             <tr><td>Severity</td><td class="sev-hi">■■■ HIGH</td></tr>
             <tr><td>Location</td><td>YOUR LOT</td></tr>
           </table>
@@ -575,11 +570,11 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
         <div class="ticket__stamp">Action Req'd</div>
       </div>
       <div class="ticket">
-        <div class="ticket__hd"><span>&#9888; NOTICE OF VIOLATION</span><span class="no">No. 909-02</span></div>
+        <div class="ticket__hd"><span>&#9888; NOTICE OF PAVEMENT ISSUE</span><span class="no">No. 909-02</span></div>
         <div class="ticket__body">
           <div class="ticket__viol">Alligator Cracking</div>
           <table class="ticket__fields">
-            <tr><td>Violation Code</td><td>PE-02 · CRACKING</td></tr>
+            <tr><td>Issue Code</td><td>PE-02 · CRACKING</td></tr>
             <tr><td>Severity</td><td class="sev-hi">■■■ HIGH</td></tr>
             <tr><td>Location</td><td>YOUR LOT</td></tr>
           </table>
@@ -591,11 +586,11 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
         <div class="ticket__stamp">Action Req'd</div>
       </div>
       <div class="ticket">
-        <div class="ticket__hd"><span>&#9888; NOTICE OF VIOLATION</span><span class="no">No. 909-03</span></div>
+        <div class="ticket__hd"><span>&#9888; NOTICE OF PAVEMENT ISSUE</span><span class="no">No. 909-03</span></div>
         <div class="ticket__body">
           <div class="ticket__viol">Faded &amp; Graying</div>
           <table class="ticket__fields">
-            <tr><td>Violation Code</td><td>PE-03 · OXIDATION</td></tr>
+            <tr><td>Issue Code</td><td>PE-03 · OXIDATION</td></tr>
             <tr><td>Severity</td><td>■■□ MEDIUM</td></tr>
             <tr><td>Location</td><td>YOUR LOT</td></tr>
           </table>
@@ -606,11 +601,11 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
         </div>
       </div>
       <div class="ticket">
-        <div class="ticket__hd"><span>&#9888; NOTICE OF VIOLATION</span><span class="no">No. 909-04</span></div>
+        <div class="ticket__hd"><span>&#9888; NOTICE OF PAVEMENT ISSUE</span><span class="no">No. 909-04</span></div>
         <div class="ticket__body">
           <div class="ticket__viol">Standing Water</div>
           <table class="ticket__fields">
-            <tr><td>Violation Code</td><td>PE-04 · PONDING</td></tr>
+            <tr><td>Issue Code</td><td>PE-04 · PONDING</td></tr>
             <tr><td>Severity</td><td>■■□ MEDIUM</td></tr>
             <tr><td>Location</td><td>YOUR LOT</td></tr>
           </table>
@@ -621,11 +616,11 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
         </div>
       </div>
       <div class="ticket">
-        <div class="ticket__hd"><span>&#9888; NOTICE OF VIOLATION</span><span class="no">No. 909-05</span></div>
+        <div class="ticket__hd"><span>&#9888; NOTICE OF PAVEMENT ISSUE</span><span class="no">No. 909-05</span></div>
         <div class="ticket__body">
           <div class="ticket__viol">Worn Striping</div>
           <table class="ticket__fields">
-            <tr><td>Violation Code</td><td>PE-05 · FADED LINES</td></tr>
+            <tr><td>Issue Code</td><td>PE-05 · FADED LINES</td></tr>
             <tr><td>Severity</td><td>■■□ MEDIUM</td></tr>
             <tr><td>Location</td><td>YOUR LOT</td></tr>
           </table>
@@ -636,11 +631,11 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
         </div>
       </div>
       <div class="ticket">
-        <div class="ticket__hd"><span>&#9888; NOTICE OF VIOLATION</span><span class="no">No. 909-06</span></div>
+        <div class="ticket__hd"><span>&#9888; NOTICE OF PAVEMENT ISSUE</span><span class="no">No. 909-06</span></div>
         <div class="ticket__body">
           <div class="ticket__viol">ADA Non-Compliance</div>
           <table class="ticket__fields">
-            <tr><td>Violation Code</td><td>PE-06 · ADA</td></tr>
+            <tr><td>Issue Code</td><td>PE-06 · ADA</td></tr>
             <tr><td>Severity</td><td class="sev-hi">■■■ HIGH</td></tr>
             <tr><td>Location</td><td>YOUR LOT</td></tr>
           </table>
@@ -653,7 +648,7 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
       </div>
     </div>
     <div style="text-align:center;margin-top:44px">
-      <a href="#request" class="btn-primary">Report a Violation on Your Lot
+      <a href="#request" class="btn-primary">Request a Free Site Inspection
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
     </div>
@@ -674,13 +669,13 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
 <section class="sec-pad" id="process">
   <div class="wrap">
     <div class="sec-head">
-      <h2 class="sec-title display">File. Assess. Enforce.</h2>
+      <h2 class="sec-title display">Inspect. Assess. Restore.</h2>
     </div>
     <div class="proc-grid">
-      <div class="proc"><span class="proc__no">01</span><span class="proc__k">Step 01</span><h4>File a Request</h4><p>Call dispatch or submit the form. Tell us the property and the problem — we log the case same day.</p></div>
-      <div class="proc"><span class="proc__no">02</span><span class="proc__k">Step 02</span><h4>Site Inspection</h4><p>We walk your lot free of charge, measure, photograph and diagnose the real problem — not the biggest invoice.</p></div>
-      <div class="proc"><span class="proc__no">03</span><span class="proc__k">Step 03</span><h4>Scope &amp; Quote</h4><p>You get a clear written scope with honest options — repair, maintain or replace — and a fast, fixed estimate.</p></div>
-      <div class="proc"><span class="proc__no">04</span><span class="proc__k">Step 04</span><h4>Enforce the Work</h4><p>Crews mobilize, work clean, and leave your lot striped, sealed and inspection-ready. Warrantied.</p></div>
+      <div class="proc"><span class="proc__no">01</span><span class="proc__k">Step 01</span><h4>Request an Inspection</h4><p>Tell us about the property and what needs attention. We'll schedule a site visit and gather the information we need.</p></div>
+      <div class="proc"><span class="proc__no">02</span><span class="proc__k">Step 02</span><h4>Inspect the Property</h4><p>We walk the site, take measurements and photos, and identify the actual pavement conditions and problem areas.</p></div>
+      <div class="proc"><span class="proc__no">03</span><span class="proc__k">Step 03</span><h4>Review Your Options</h4><p>You receive a clear scope with practical recommendations based on pavement condition, budget and long-term goals.</p></div>
+      <div class="proc"><span class="proc__no">04</span><span class="proc__k">Step 04</span><h4>Schedule the Work</h4><p>We coordinate access, phasing and scheduling to reduce disruption to tenants, customers, employees and normal property operations.</p></div>
     </div>
   </div>
 </section>
@@ -693,13 +688,14 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
         <img src="assets/logo-black.svg" alt="Pavement Enforcement">
       </div>
       <div>
+        <span class="tag line">Why Pavement Enforcement</span>
         <h2 class="sec-title display" style="font-size:clamp(30px,4.5vw,52px)">We Solve The<br>Right Problem.</h2>
-        <p style="color:var(--grey-2);margin-top:16px;max-width:480px">Anyone can sell you asphalt. At Pavement Enforcement we recommend the solution that's right for your property — not the one with the biggest price tag.</p>
+        <p style="color:var(--grey-2);margin-top:16px;max-width:480px">Anyone can sell asphalt. Our job is to recommend what makes sense for the property — whether that means maintenance, repair, resurfacing or replacement.</p>
         <ul>
-          <li><svg class="ck" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><div><b>Honest Recommendations</b><span>Repair, maintain or replace — we tell you what your lot actually needs.</span></div></li>
-          <li><svg class="ck" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><div><b>5-Star Rated on Google</b><span>Known across SoCal for fast response times and clean job sites.</span></div></li>
-          <li><svg class="ck" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><div><b>Licensed &amp; Insured</b><span>$2M general liability and active workers' comp — your property is protected.</span></div></li>
-          <li><svg class="ck" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><div><b>Built For The Long Haul</b><span>A company you can trust — not just for one job, but for years to come.</span></div></li>
+          <li><svg class="ck" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><div><b>Clear Recommendations</b><span>We explain what needs attention now, what can wait and why.</span></div></li>
+          <li><svg class="ck" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><div><b>Commercial Scheduling</b><span>Work can be phased around tenants, customers, deliveries and property operations.</span></div></li>
+          <li><svg class="ck" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><div><b>Clear Scopes</b><span>Straightforward proposals help property managers and owners understand exactly what is included.</span></div></li>
+          <li><svg class="ck" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><div><b>Long-Term Thinking</b><span>We look beyond the immediate repair and help identify ways to protect the pavement investment over time.</span></div></li>
         </ul>
       </div>
     </div>
@@ -736,28 +732,32 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
     </div>
     <div class="faq">
       <div class="faq-item open">
-        <button class="faq-q" onclick="toggleFaq(this)">Do you only work on commercial properties?</button>
-        <div class="faq-a"><p>Correct. We specialize in commercial lots — retail centers, office parks, industrial, multifamily, HOAs, mobile home parks and churches. That focus is exactly why we're fast and get it right the first time.</p></div>
+        <button class="faq-q" onclick="toggleFaq(this)">What types of properties do you service?</button>
+        <div class="faq-a"><p>We specialize in commercial and managed properties, including shopping centers, industrial properties, multifamily communities, HOAs, office properties, hospitality properties, and commercial portfolios.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Is the site inspection really free?</button>
-        <div class="faq-a"><p>Yes. We walk your lot, measure, photograph and diagnose the actual problem at no cost — then give you a clear written scope and a fast estimate. No obligation.</p></div>
+        <div class="faq-a"><p>Yes. We'll visit the property, review the pavement conditions, take measurements and photos as needed, and prepare a clear scope with recommended repair options and pricing. There is no obligation.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">How fast can you get me a quote?</button>
-        <div class="faq-a"><p>Dispatch typically replies within minutes and we aim to get you a same-day estimate after the inspection. Deadlines for an inspection or ADA compliance? Tell us — we'll prioritize it.</p></div>
+        <button class="faq-q" onclick="toggleFaq(this)">How quickly can I receive a proposal?</button>
+        <div class="faq-a"><p>Turnaround depends on the size and complexity of the property. After the site inspection, we'll prepare a detailed proposal as quickly as possible. If you're working toward a budget, board meeting, ownership approval, or other deadline, let us know.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Are you licensed and insured?</button>
-        <div class="faq-a"><p>We carry $2M general liability and active workers' comp, so your property is fully protected during the job. Contractor license is in final processing — ask dispatch for current documentation.</p></div>
+        <button class="faq-q" onclick="toggleFaq(this)">How do I know if my pavement needs repair, sealcoating, or replacement?</button>
+        <div class="faq-a"><p>It depends on the condition of the pavement and what is causing the failure. Some areas may only need preventive maintenance, while others may require patching, resurfacing, or full-depth replacement. We inspect the property first and explain the options before recommending the work.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Should I repair, sealcoat, or fully replace?</button>
-        <div class="faq-a"><p>That's exactly what the inspection answers. We recommend the solution that's right for your property and budget — not the one with the biggest price tag. Sometimes a $200 crack seal saves a $20k repave.</p></div>
+        <button class="faq-q" onclick="toggleFaq(this)">Can you schedule work around tenants and business operations?</button>
+        <div class="faq-a"><p>Yes. Commercial properties need to stay accessible. We can coordinate phasing, traffic flow, parking access, deliveries, and scheduling to help minimize disruption to tenants, customers, and employees.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Which areas do you serve?</button>
-        <div class="faq-a"><p>All of Southern California from our Pomona base — the Inland Empire, Riverside County, San Bernardino County, LA County and Orange County. If your lot is in the region, we roll a truck.</p></div>
+        <button class="faq-q" onclick="toggleFaq(this)">What areas do you serve?</button>
+        <div class="faq-a"><p>Pavement Enforcement is based in Pomona and serves commercial properties throughout the Inland Empire and surrounding areas of Los Angeles, Orange, Riverside, and San Bernardino counties.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Are you licensed, bonded, and insured?</button>
+        <div class="faq-a"><p>Yes. Pavement Enforcement is licensed, bonded, and insured in California.</p></div>
       </div>
     </div>
   </div>
@@ -768,11 +768,11 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
   <div class="wrap">
     <div class="request__inner">
       <div>
-        <h2 class="display">Report Your Lot.<br>Get a Fast Quote.</h2>
-        <p class="lead">Tell dispatch what's going on with your pavement. Free site inspection, honest scope, same-day estimate.</p>
+        <h2 class="display">Report Your Lot.<br>Request an Inspection.</h2>
+        <p class="lead">Tell us what needs attention. We'll review the property, document the problem areas, and provide a clear scope with repair options and pricing.</p>
         <div class="contactline">
           <svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <div><b>(909) 333-6330</b><span>Dispatch · Mon–Fri 8–6 · Sat 8–1</span></div>
+          <div><b>(909) 333-6330</b><span>Call Now · Mon–Fri 8–6 · Sat 8–1</span></div>
         </div>
         <div class="contactline">
           <svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
@@ -780,11 +780,10 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
         </div>
         <div class="contactline">
           <svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <div><b>Serving All of SoCal</b><span>IE · Riverside · San Bernardino · LA · Orange</span></div>
+          <div><b>Serving All of SoCal</b><span>Inland Empire · Riverside · San Bernardino · Los Angeles · Orange</span></div>
         </div>
       </div>
       <form onsubmit="return submitForm(event)">
-        <div class="form-head"><span>REQUEST FORM · CF-909</span><span>● OPEN</span></div>
         <div class="fg-row">
           <div class="fg"><label>Name</label><input required placeholder="Full name"></div>
           <div class="fg"><label>Phone</label><input required type="tel" placeholder="(909) 000-0000"></div>
@@ -803,7 +802,6 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
         <button type="submit" class="btn-primary form-submit">Submit Request
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </button>
-        <p style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--grey);letter-spacing:.08em;margin-top:14px;text-align:center">⚠ Demo form — connect to email/CRM before launch</p>
       </form>
     </div>
   </div>
@@ -815,7 +813,6 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
     <div class="foot-grid">
       <div class="foot-brand">
         <img src="assets/logo-white.svg" alt="Pavement Enforcement">
-        <p>Commercial asphalt, sealcoating, striping and ADA compliance — protecting property owners' pavement investments across Southern California.</p>
         <div class="foot-social">
           <a href="https://instagram.com/pavementenforcement" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
           <a href="https://tiktok.com/@pavementenforcement" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 3a5 5 0 0 0 5 5v3a8 8 0 0 1-5-1.7V15a6 6 0 1 1-6-6v3a3 3 0 1 0 3 3V3h3z"/></svg></a>
@@ -824,7 +821,7 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
         </div>
       </div>
       <div class="foot-col">
-        <h5>Divisions</h5>
+        <h5>Services</h5>
         <a href="#request">Asphalt Paving</a>
         <a href="#request">Asphalt Repair</a>
         <a href="#request">Sealcoating</a>
@@ -834,7 +831,7 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
         <a href="#request">Concrete</a>
       </div>
       <div class="foot-col">
-        <h5>Jurisdiction</h5>
+        <h5>Service Areas</h5>
         <p>Inland Empire</p>
         <p>Riverside County</p>
         <p>San Bernardino County</p>
@@ -842,9 +839,10 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
         <p>Orange County</p>
       </div>
       <div class="foot-col">
-        <h5>Dispatch</h5>
+        <h5>Contact</h5>
         <a href="tel:19093336330">(909) 333-6330</a>
         <a href="mailto:service@PavementEnforcement.com">service@PavementEnforcement.com</a>
+        <h5 style="margin-top:22px">Hours</h5>
         <p>Mon–Fri · 8AM–6PM</p>
         <p>Sat · 8AM–1PM</p>
         <p>Sun · Closed</p>
@@ -852,7 +850,7 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
     </div>
     <div class="foot-bar">
       <span>© 2026 Pavement Enforcement · Pomona, CA</span>
-      <span>CSLB Lic. # [PENDING] · EIN 42-1787580</span>
+      <span>CSLB Lic. # [PENDING]</span>
     </div>
   </div>
   <div class="disclaimer">Pavement Enforcement is a private commercial paving contractor and is not affiliated with any government agency, law enforcement, or municipality.</div>
@@ -860,7 +858,7 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
 
 <script>
 function toggleMenu(){document.getElementById('mm').classList.toggle('open')}
-function submitForm(e){e.preventDefault();alert('Demo only — this form is not yet connected. Call dispatch at (909) 333-6330.');return false}
+function submitForm(e){e.preventDefault();alert('Demo only — this form is not yet connected. Call now at (909) 333-6330.');return false}
 function toggleFaq(btn){var it=btn.parentElement;it.classList.toggle('open')}
 </script>
 </body>
