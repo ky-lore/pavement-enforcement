@@ -234,19 +234,6 @@ h2.sec-title{font-size:clamp(34px,5.5vw,66px);text-transform:uppercase}
 .proc p{color:var(--grey-2);font-size:15px;position:relative}
 .proc__k{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--yellow);letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;display:block}
 
-/* ---------- STANDARDS / WHY ---------- */
-.why{background:var(--surface);border-top:1px solid var(--line)}
-.why__inner{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
-.why__logo{position:relative;border:1px solid var(--line);border-radius:6px;background:var(--white);padding:70px 50px;text-align:center;overflow:hidden}
-.why__logo img{width:100%;max-width:360px;margin:0 auto;opacity:.95}
-.why__logo::after{content:"NOT GOVERNMENT AFFILIATED";position:absolute;bottom:16px;left:0;right:0;text-align:center;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;color:var(--grey)}
-.why h2,.why li b{color:var(--ink)}
-.why__logo .seal{position:absolute;top:18px;right:18px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--yellow);border:1px solid var(--yellow);padding:4px 8px;border-radius:2px}
-.why ul{list-style:none;margin-top:22px;display:flex;flex-direction:column;gap:2px}
-.why li{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--line)}
-.why li .ck{color:var(--yellow-deep);flex:none;margin-top:2px}
-.why li b{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:19px;letter-spacing:.02em;display:block;margin-bottom:4px}
-.why li span{color:var(--grey-2);font-size:15px}
 
 /* ---------- STATS ---------- */
 .stats{background:var(--yellow);color:#000;border-block:2px solid #000}
@@ -382,7 +369,7 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
 /* ---------- RESPONSIVE ---------- */
 @media(max-width:1000px){
   .div-grid{grid-template-columns:repeat(2,1fr)}
-  .jur__inner,.why__inner,.request__inner{grid-template-columns:1fr;gap:40px}
+  .jur__inner,.request__inner{grid-template-columns:1fr;gap:40px}
   .proc-grid{grid-template-columns:repeat(2,1fr)}
   .creds__grid,.stats__grid{grid-template-columns:repeat(2,1fr)}
   .cred{border-bottom:1px solid var(--line)}
@@ -680,28 +667,6 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
   </div>
 </section>
 
-<!-- WHY / STANDARDS -->
-<section class="why sec-pad">
-  <div class="wrap">
-    <div class="why__inner">
-      <div class="why__logo">
-        <img src="assets/logo-black.svg" alt="Pavement Enforcement">
-      </div>
-      <div>
-        <span class="tag line">Why Pavement Enforcement</span>
-        <h2 class="sec-title display" style="font-size:clamp(30px,4.5vw,52px)">We Solve The<br>Right Problem.</h2>
-        <p style="color:var(--grey-2);margin-top:16px;max-width:480px">Anyone can sell asphalt. Our job is to recommend what makes sense for the property — whether that means maintenance, repair, resurfacing or replacement.</p>
-        <ul>
-          <li><svg class="ck" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><div><b>Clear Recommendations</b><span>We explain what needs attention now, what can wait and why.</span></div></li>
-          <li><svg class="ck" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><div><b>Commercial Scheduling</b><span>Work can be phased around tenants, customers, deliveries and property operations.</span></div></li>
-          <li><svg class="ck" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><div><b>Clear Scopes</b><span>Straightforward proposals help property managers and owners understand exactly what is included.</span></div></li>
-          <li><svg class="ck" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><div><b>Long-Term Thinking</b><span>We look beyond the immediate repair and help identify ways to protect the pavement investment over time.</span></div></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- REVIEWS -->
 <section class="sec-pad" id="reviews">
   <div class="wrap">
@@ -757,7 +722,7 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Are you licensed, bonded, and insured?</button>
-        <div class="faq-a"><p>Yes. Pavement Enforcement is licensed, bonded, and insured in California.</p></div>
+        <div class="faq-a"><p>Yes. Pavement Enforcement is licensed, bonded, and insured in California (CSLB License #1162987).</p></div>
       </div>
     </div>
   </div>
@@ -850,7 +815,7 @@ footer{background:var(--black);border-top:3px solid var(--yellow);padding-top:70
     </div>
     <div class="foot-bar">
       <span>© 2026 Pavement Enforcement · Pomona, CA</span>
-      <span>CSLB Lic. # [PENDING]</span>
+      <span>CSLB Lic. # 1162987</span>
     </div>
   </div>
   <div class="disclaimer">Pavement Enforcement is a private commercial paving contractor and is not affiliated with any government agency, law enforcement, or municipality.</div>
