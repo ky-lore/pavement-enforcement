@@ -10,7 +10,7 @@ PH = copy we wrote (general trade knowledge / process wording) for client review
 
 NAME = "Pavement Enforcement"
 LEGAL_NAME = "Pavement Enforcement"            # onboarding: legal name, S corp
-DOMAIN = "https://pavementenforcement.com"
+DOMAIN = "https://www.pavementenforcement.com"
 PHONE_DISPLAY = "(909) 333-6330"               # onboarding business number
 PHONE_E164 = "+19093336330"
 EMAIL = "service@PavementEnforcement.com"      # CONFIRM: from the approved single-page site, not in onboarding
