@@ -29,5 +29,5 @@ Railway project **SITE : Pavement Enforcement** (AM Production), service `paveme
 - **Reviews:** 3 of 9 Google reviews shown (the rest need a signed-in view). No auto-updating widget yet.
 - **Favicon:** `PE` monogram is a placeholder mark.
 - **Photos:** only the hero photo; service pages have no job photos yet.
-- **Domain:** pavementenforcement.com still points at GoDaddy. Canonicals already use the final domain. Add the website to the Google Business Profile once live.
+- **Domain (live 2026-11-03):** `www.pavementenforcement.com` is a CNAME to Railway (`irxin9yl.up.railway.app`) plus a `_railway-verify.www` TXT record. The bare domain uses a GoDaddy 301 forward to `https://www.pavementenforcement.com`, because GoDaddy can't CNAME the apex. **That forward drops paths and query strings**, so ads and links must use `https://www.pavementenforcement.com/...` URLs. MX, SPF, DMARC and Google verification records were left as they were. DNS lives in Diego Arce's GoDaddy account (AM delegate access), and every save needs a texted code to the phone ending in 8053. Add the website to the Google Business Profile.
 - Fonts load from Google Fonts (checker warning, not a blocker).
