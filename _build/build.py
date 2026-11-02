@@ -62,6 +62,21 @@ SOCIAL_SVG = {
 }
 
 
+SEAL = ('<svg class="seal-svg" viewBox="0 0 200 200" aria-hidden="true" focusable="false">'
+        '<defs><path id="sealArc" d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0"/></defs>'
+        '<circle cx="100" cy="100" r="96" fill="none" stroke="currentColor" stroke-width="2"/>'
+        '<circle cx="100" cy="100" r="88" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 4"/>'
+        '<circle cx="100" cy="100" r="56" fill="none" stroke="currentColor" stroke-width="1.5"/>'
+        '<text font-family="JetBrains Mono,monospace" font-size="10.5" font-weight="700" fill="currentColor" textLength="440" lengthAdjust="spacing">'
+        '<textPath href="#sealArc" startOffset="0">PAVEMENT ENFORCEMENT • PAVING DIVISION • SOCAL •</textPath></text>'
+        '<path d="M100 62l9.4 19 21 3-15.2 14.8 3.6 20.9L100 109.8 81.2 119.7l3.6-20.9L69.6 84l21-3z" fill="currentColor"/>'
+        '<text x="100" y="140" text-anchor="middle" font-family="Anton,sans-serif" font-size="13" letter-spacing="1.5" fill="currentColor">CSLB 1162987</text></svg>')
+
+
+def eyebrow(text):
+    return f'<span class="eyebrow-tag">{e(text)}</span>'
+
+
 def icon(name, cls="div-card__ico"):
     return f'<svg class="{cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">{ICONS[name]}</svg>'
 
@@ -96,7 +111,7 @@ def header(path):
   <nav class="nav" aria-label="Main">
     <a href="/" class="brand"><img src="/assets/logo-white.svg" alt="{C.NAME}" width="170" height="34"></a>
     <div class="nav__links">{"".join(links)}</div>
-    <a href="tel:{C.PHONE_E164}" class="dispatch-btn" data-loc="header">{PHONE_SVG}<span>{C.PHONE_DISPLAY}</span></a>
+    <a href="tel:{C.PHONE_E164}" class="dispatch-btn" data-loc="header">{PHONE_SVG}<span><small>Dispatch</small>{C.PHONE_DISPLAY}</span></a>
     <button type="button" class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mm"><span></span><span></span><span></span></button>
   </nav>
 </header>
@@ -177,7 +192,7 @@ SERVICE_OPTIONS = ["Not sure, need an inspection"] + [s["name"] for s in C.SERVI
 
 def quote_form(fid="quote", service="", heading="Request a Free Site Inspection"):
     return f'''<form id="{fid}" class="quote" data-mock novalidate aria-labelledby="{fid}-h">
-  <div class="form-head"><h2 id="{fid}-h" class="h-inline">{heading}</h2><span aria-hidden="true">Free · No obligation</span></div>
+  <div class="form-head"><span class="form-code" aria-hidden="true">Form PE-100 · Inspection Request</span><h2 id="{fid}-h" class="h-inline">{heading}</h2><span class="form-free">Free · No obligation</span></div>
   <p class="req-note">Fields marked <span class="req" aria-hidden="true">*</span> are required.</p>
   <div class="fg-row">{field(fid, "first_name", "First name", req=True, ac="given-name")}{field(fid, "last_name", "Last name", req=True, ac="family-name")}</div>
   <div class="fg-row">{field(fid, "phone", "Phone", "tel", True, "tel", "(909) 555-0123")}{field(fid, "email", "Email", "email", False, "email", "you@company.com")}</div>
@@ -219,6 +234,7 @@ def request_section(service="", tone="request"):
   <div class="wrap">
     <div class="request__inner">
       <div>
+        {eyebrow("File a Request")}
         <h2 class="display">Report Your Lot.<br>Request an Inspection.</h2>
         <p class="lead">Tell us what needs attention. We'll review the property, document the problem areas, and provide a clear scope with repair options and pricing.</p>
         <div class="contactline">{PHONE_SVG.replace('width="16" height="16"', 'width="22" height="22" class="ico"')}
@@ -237,6 +253,8 @@ def request_section(service="", tone="request"):
 def pageband(eyebrow, h1, lead, ctas=True, loc="band"):
     cta = f'<div class="hero__cta">{quote_btn(loc=loc)}{call_btn(loc=loc)}</div>' if ctas else ""
     return f'''<section class="pageband">
+  <div class="pageband__bg" aria-hidden="true"></div>
+  <div class="pageband__seal">{SEAL}</div>
   <div class="wrap">
     <span class="eyebrow">{e(eyebrow)}</span>
     <h1 class="display">{h1}</h1>
@@ -260,6 +278,7 @@ def reviews_block(heading_level=2):
     return f'''<section class="sec-pad" id="reviews">
   <div class="wrap">
     <div class="sec-head"><div>
+      {eyebrow("Public Record")}
       <h{heading_level} class="sec-title display">On The Record.</h{heading_level}>
       <div class="rev-score"><span class="stars" aria-hidden="true">★★★★★</span><b>{C.RATING}</b><em>Rated on Google<br>Business Profile</em></div>
     </div></div>
@@ -280,7 +299,8 @@ def process_section(tone=""):
                     for i, (t, d) in enumerate(C.PROCESS, 1))
     return f'''<section class="sec-pad {tone}" id="process">
   <div class="wrap">
-    <div class="sec-head"><h2 class="sec-title display">Inspect. Assess. Restore.</h2></div>
+    <div class="sec-head"><div>{eyebrow("Standard Procedure")}<h2 class="sec-title display">Inspect. Assess. Restore.</h2></div>
+      <p>Every job follows the same four steps, so you always know what happens next.</p></div>
     <div class="proc-grid">{steps}</div>
   </div>
 </section>'''
@@ -288,11 +308,12 @@ def process_section(tone=""):
 
 def service_cards(heading="h3"):
     return '<div class="div-grid four">' + "".join(f'''<a class="div-card" href="/services/{s["slug"]}/">
+  <span class="div-card__no" aria-hidden="true">Division 0{i}</span>
   {icon(s["icon"])}
   <{heading}>{s["name"]}</{heading}>
   <p>{e(s["card"])}</p>
   <span class="div-card__link">View {e(s["name"])} <span aria-hidden="true">→</span></span>
-</a>''' for s in C.SERVICES) + "</div>"
+</a>''' for i, s in enumerate(C.SERVICES, 1)) + "</div>"
 
 
 # ---------------------------------------------------------------- schema
@@ -427,7 +448,16 @@ def build_home():
     <div class="hero__cta">{quote_btn("#estimate", "hero")}{call_btn(loc="hero")}</div>
     <div class="hero__status"><span class="dot" aria-hidden="true"></span> <b>&nbsp;Free Estimates&nbsp;</b> · Licensed &amp; Insured · CSLB #{C.LICENSE}</div>
   </div>
+  <div class="hero__seal">{SEAL}</div>
 </section>
+<div class="trust">
+  <div class="wrap trust__grid">
+    <div><b>CSLB #{C.LICENSE}</b><span>Licensed, bonded &amp; insured</span></div>
+    <div><b>{C.RATING} ★ Google</b><span>Rated by property owners</span></div>
+    <div><b>Free inspections</b><span>Written scope &amp; pricing</span></div>
+    <div><b>4 counties</b><span>Inland Empire, LA, OC &amp; more</span></div>
+  </div>
+</div>
 
 <section class="funnel" id="estimate">
   <div class="wrap funnel__inner">
@@ -442,7 +472,7 @@ def build_home():
 
 <section class="divisions sec-pad" id="divisions">
   <div class="wrap">
-    <div class="sec-head"><h2 class="sec-title display">Every Service<br>Your Lot Will Ever Need.</h2>
+    <div class="sec-head"><div>{eyebrow("Paving Division")}<h2 class="sec-title display">Every Service<br>Your Lot Will Ever Need.</h2></div>
       <p>Paving, repair, protection, striping, concrete and ADA work, all from one licensed contractor. <a class="div-card__link" href="/services/">All services <span aria-hidden="true">→</span></a></p></div>
     {service_cards()}
   </div>
@@ -452,7 +482,8 @@ def build_home():
 
 <section class="viol sec-pad" id="violations">
   <div class="wrap">
-    <div class="sec-head"><h2 class="sec-title display">Know The Warning Signs.</h2></div>
+    <div class="sec-head"><div>{eyebrow("Common Citations")}<h2 class="sec-title display">Know The Warning Signs.</h2></div>
+      <p>If your lot has any of these, it's time for an inspection. Each one gets worse, and more expensive, the longer it sits.</p></div>
     <div class="viol-grid">{tickets()}</div>
     <div style="text-align:center;margin-top:44px">{quote_btn("#estimate", "violations")}</div>
   </div>
@@ -467,12 +498,13 @@ def build_home():
   </div>
 </div>
 
-{process_section("tone-surface")}
+{process_section("tone-dark")}
 {reviews_block()}
 
 <section class="sec-pad tone-surface" id="faq">
   <div class="wrap">
     <div class="sec-head" style="justify-content:center;text-align:center;flex-direction:column;align-items:center;margin-bottom:40px">
+      {eyebrow("Field Manual")}
       <h2 class="sec-title display">Frequently Asked Questions.</h2>
     </div>
     {faq_list(C.FAQ_FEATURED)}
@@ -491,13 +523,17 @@ def build_services():
 <section class="sec-pad">
   <div class="wrap">{service_cards("h2")}</div>
 </section>
-{process_section("tone-surface")}
+{process_section("tone-dark")}
 {request_section(tone="")}'''
     page("services", "Commercial Paving & Parking Lot Services | Pavement Enforcement",
          "Asphalt paving, repair, sealcoating, crack sealing, striping, concrete and ADA upgrades for commercial lots in SoCal. Free inspections. Call (909) 333-6330.",
          body, [crumbs(("Services", "/services/")),
                 {"@type": "OfferCatalog", "name": "Pavement services", "itemListElement": [
                     {"@type": "Offer", "itemOffered": {"@type": "Service", "name": s["name"], "url": f'{C.DOMAIN}/services/{s["slug"]}/'}} for s in C.SERVICES]}])
+
+
+def spec_items(items):
+    return "".join(f'<li><span aria-hidden="true">0{n}</span>{e(i)}</li>' for n, i in enumerate(items, 1))
 
 
 def build_service(s):
@@ -512,7 +548,7 @@ def build_service(s):
     </div>
     <div class="box">
       <h2>What's included</h2>
-      <ul class="checklist">{"".join(f"<li>{e(i)}</li>" for i in s["includes"])}</ul>
+      <ol class="spec">{spec_items(s["includes"])}</ol>
     </div>
   </div>
 </section>
@@ -550,7 +586,7 @@ def build_areas():
     body = f'''{pageband("Service Areas", "Serving Southern<br>California.", "Based in Pomona and serving commercial properties across the Inland Empire, Los Angeles, San Bernardino, Riverside and Orange counties.", loc="areas")}
 <section class="sec-pad">
   <div class="wrap">
-    <div class="sec-head"><h2 class="sec-title display">Where we work.</h2><p>Not sure if your property is in range? Call {C.PHONE_DISPLAY} and we'll tell you right away.</p></div>
+    <div class="sec-head"><div>{eyebrow("Under Jurisdiction")}<h2 class="sec-title display">Where we work.</h2></div><p>Not sure if your property is in range? Call {C.PHONE_DISPLAY} and we'll tell you right away.</p></div>
     <div class="area-grid">{cards}</div>
   </div>
 </section>
@@ -589,7 +625,7 @@ def build_about():
     </div>
   </div>
 </section>
-{process_section("tone-surface")}
+{process_section("tone-dark")}
 {reviews_block()}
 {request_section(tone="request")}'''
     page("about", "About Us | Pavement Enforcement, Pomona Paving Contractor",
